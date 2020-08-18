@@ -11,16 +11,13 @@ const TermsOfService = props => {
   // prettier-ignore
   return (
     <div className={classes}>
-      <p className={css.lastUpdated}>Last updated: October 30, 2017</p>
+      <p className={css.lastUpdated}>這些條款和條件自以下日期起生效: 2月15日2019年</p>
 
       <p>
-        Thank you for using Saunatime! Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      這些條款與條件形成Dotcept與您之間具有約束力的法律合約。您在此確認並同意，這些條款與條件適用於您存取，以及透過網站及行動應用程式所使用的任何服務。如果您不同意受這些條款與條件的約束，請勿存取或使用Dotcept服務。如果您未滿18歲，請先取得您父母或監護人對有關這些條款和條件的同意確認。
       </p>
 
-      <h2>1 Lorem ipsum dolor sit amet</h2>
+      <h2>定義與解釋</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco

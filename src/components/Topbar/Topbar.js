@@ -97,18 +97,28 @@ class TopbarComponent extends Component {
 
   handleSubmit(values) {
     const { currentSearchParams } = this.props;
-    const { search, selectedPlace } = values.location;
+    const keywords = values.keywords;
     const { history } = this.props;
-    const { origin, bounds } = selectedPlace;
-    const originMaybe = config.sortSearchByDistance ? { origin } : {};
     const searchParams = {
       ...currentSearchParams,
-      ...originMaybe,
-      address: search,
-      bounds,
+      keywords,
     };
     history.push(createResourceLocatorString('SearchPage', routeConfiguration(), {}, searchParams));
   }
+  // handleSubmit(values) {
+  //   const { currentSearchParams } = this.props;
+  //   const { search, selectedPlace } = values.location;
+  //   const { history } = this.props;
+  //   const { origin, bounds } = selectedPlace;
+  //   const originMaybe = config.sortSearchByDistance ? { origin } : {};
+  //   const searchParams = {
+  //     ...currentSearchParams,
+  //     ...originMaybe,
+  //     address: search,
+  //     bounds,
+  //   };
+  //   history.push(createResourceLocatorString('SearchPage', routeConfiguration(), {}, searchParams));
+  // }
 
   handleLogout() {
     const { onLogout, history } = this.props;
@@ -188,7 +198,8 @@ class TopbarComponent extends Component {
     };
 
     const classes = classNames(rootClassName || css.root, className);
-
+    const { currentSearchParams } = this.props;
+    
     return (
       <div className={classes}>
         <LimitedAccessBanner
@@ -257,6 +268,7 @@ class TopbarComponent extends Component {
             <TopbarSearchForm
               onSubmit={this.handleSubmit}
               initialValues={initialSearchFormValues}
+              currentSearchParams={currentSearchParams}
               isMobile
             />
             <p className={css.mobileHelp}>

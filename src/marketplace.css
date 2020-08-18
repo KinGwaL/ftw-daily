@@ -35,16 +35,16 @@
     background-position: center center;
 
     @media (--viewportLarge) {
-      border-radius: 40px;
-      border: solid 36px var(--matterColorBright);
+      /* border-radius: 40px; */
+      border-bottom: solid 36px var(--matterColorBright);
     }
   }
 
   /* ================ Colors ================ */
 
-  --marketplaceColor: #c0392b;
-  --marketplaceColorLight: #ff4c38;
-  --marketplaceColorDark: #8c291e;
+  --marketplaceColor: #FCBC04;
+  --marketplaceColorLight: #fcd104;
+  --marketplaceColorDark: #fca704;
 
   /* Used with inline CSS SVGs */
   --marketplaceColorEncoded: %23c0392b;
@@ -54,7 +54,7 @@
   --successColorLight: #f0fff6;
   --failColor: #ff0000;
   --failColorLight: #fff0f0;
-  --attentionColor: #ffaa00;
+  --attentionColor: #82A2FE;
   --attentionColorLight: #fff7f0;
   --bannedColorLight: var(--marketplaceColorLight);
   --bannedColorDark: var(--marketplaceColor);

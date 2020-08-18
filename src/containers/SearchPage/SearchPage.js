@@ -162,6 +162,7 @@ export class SearchPageComponent extends Component {
     // N.B. openMobileMap button is sticky.
     // For some reason, stickyness doesn't work on Safari, if the element is <button>
     /* eslint-disable jsx-a11y/no-static-element-interactions */
+
     return (
       <Page
         scrollingDisabled={scrollingDisabled}

@@ -1,9 +1,9 @@
 {
-  "name": "Saunatime",
-  "short_name": "Saunatime",
+  "name": "Dotcept",
+  "short_name": "Dotcept",
   "start_url": "/",
-  "display": "standalone",
-  "theme_color": "#C0392B",
+  "display": "dotnconcept",
+  "theme_color": "#FFb400",
   "background_color": "#FFFFFF",
   "icons": [
     {
