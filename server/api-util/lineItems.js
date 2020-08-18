@@ -5,7 +5,7 @@ const { Money } = types;
 // This bookingUnitType needs to be one of the following:
 // line-item/night, line-item/day or line-item/units
 const bookingUnitType = 'line-item/day';
-const PROVIDER_COMMISSION_PERCENTAGE = -10;
+const PROVIDER_COMMISSION_PERCENTAGE = -20;
 
 /** Returns collection of lineItems (max 50)
  *
@@ -48,14 +48,38 @@ exports.transactionLineItems = (listing, bookingData) => {
     includeFor: ['customer', 'provider'],
   };
 
+  const cleaningFeePrice = resolveCleaningFeePrice(listing);
+  const cleaningFee = cleaningFeePrice
+    ? [
+        {
+          code: 'line-item/service-fee',
+          unitPrice: cleaningFeePrice,
+          quantity: 1,
+          includeFor: ['customer', 'provider'],
+        },
+      ]
+    : [];
+
   const providerCommission = {
     code: 'line-item/provider-commission',
-    unitPrice: calculateTotalFromLineItems([booking]),
+    unitPrice: calculateTotalFromLineItems([booking, ...cleaningFee]),
     percentage: PROVIDER_COMMISSION_PERCENTAGE,
     includeFor: ['provider'],
   };
 
-  const lineItems = [booking, providerCommission];
+  const lineItems = [booking, ...cleaningFee, providerCommission];
 
   return lineItems;
+};
+
+const resolveCleaningFeePrice = listing => {
+  const publicData = listing.attributes.publicData;
+  const cleaningFee = publicData && publicData.cleaningFee;
+  const { amount, currency } = cleaningFee;
+
+  if (amount && currency) {
+    return new Money(amount, currency);
+  }
+
+  return null;
 };
